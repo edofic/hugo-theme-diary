@@ -14,7 +14,7 @@
                     {{ .Title }}
                     <div class="post-meta">
                         <time itemprop="datePublished">
-                            {{ .PublishDate.Format "2006-01-02 15:04" }}
+                            {{ .PublishDate.Format "2006-01-02" }}
                         </time>
 
                         {{ if .Params.categories }}
@@ -33,17 +33,17 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="post-body-wrapper">
                 <div class="post-body">
                     {{.Content}}
                     <HR width="100%">
                     <p style="color:#777;">Last modified on {{ .Page.Lastmod.Format "2006-01-02" }}</p>
                 </div>
-                
+
             </div>
-            
-            
+
+
             <nav class="post-pagination">
 
                 {{if .Next}}
@@ -55,7 +55,7 @@
                     Next<br>No newer posts.
                 </a>
                 {{end}}
-                
+
                 {{if .Prev}}
                 <a class="older-posts" href="{{.Prev.Permalink}}">
                     Previous<br>{{.Prev.Title}}
