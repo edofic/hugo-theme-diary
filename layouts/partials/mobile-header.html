@@ -9,7 +9,7 @@
                 {{if hasPrefix  $current (.URL|absLangURL)}}
                     {{$actived = "active"}}
                 {{end}}
-                <a class="a-block drawer-menu-item {{$actived}}" href="{{ .URL }}">
+                <a class="a-block drawer-menu-item" href="{{ .URL }}">
                     {{ .Name }}
                 </a>
         {{ end }}

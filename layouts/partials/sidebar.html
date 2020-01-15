@@ -27,16 +27,15 @@
 
 
     <div class="nav-link-list">
-        {{ $current := .Permalink | absLangURL }}
+        {{ $current := trim (.Permalink | absLangURL) "/" }}
         {{ range .Site.Menus.main }}
             {{$actived := "false"}}
-                <!-- A problem caused by slash: if you use "eq" directly, you will get a result of "/tags/" and "/tags" -->
-                {{if hasPrefix  $current (.URL|absLangURL)}}
-                    {{$actived = "active"}}
-                {{end}}
-                <a class="a-block nav-link-item {{$actived}}" href="{{ .URL }}">
-                    {{ .Name }}
-                </a>
+            {{if eq  $current (.URL|absLangURL)}}
+                {{$actived = "active"}}
+            {{end}}
+            <a class="a-block nav-link-item" href="{{ .URL }}">
+                {{ .Name }}
+            </a>
         {{ end }}
     </div>
 
