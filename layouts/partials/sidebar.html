@@ -1,18 +1,30 @@
 <div ref="sideContainer" class="side-container">
-    {{ if eq .Title .Site.Title}}
-    <a class="a-block nav-head active" href="{{.Site.BaseURL}}">
-    {{ else }}
-    <a class="a-block nav-head false" href="{{.Site.BaseURL}}">
-    {{ end }}
+    <div class="a-block nav-head false">
         <div class="nav-title">
             {{.Site.Title}}
         </div>
-        {{ with .Site.Params.subtitle }}
         <div class="nav-subtitle">
-            {{.}}
+            {{ with .Site.Params.subtitle }}
+                {{.}}
+            {{ end }}
         </div>
-        {{ end }}
-    </a>
+            {{ with .Site.Params.github }}
+                <a href="https://github.com/{{.}}"><img src="/icons/github.svg" width="20"/></a>
+            {{ end }}
+            {{ with .Site.Params.linkedin }}
+                <a href="https://www.linkedin.com/in/{{.}}"><img src="/icons/linkedin.svg" width="20"/></a>
+            {{ end }}
+            {{ with .Site.Params.twitter }}
+                <a href="https://twitter.com/{{.}}"><img src="/icons/twitter.svg" width="20"/></a>
+            {{ end }}
+            {{ with .OutputFormats.Get "rss" -}}
+                <a href="{{ .Permalink }}"><img src="/icons/rss.svg" width="20"/></a>
+            {{ end }}
+            {{ with .Site.Params.email }}
+                <a href="mailto:{{.}}"><img src="/icons/email.svg" width="20"/></a>
+            {{ end }}
+    </div>
+
 
     <div class="nav-link-list">
         {{ $current := .Permalink | absLangURL }}
@@ -28,10 +40,8 @@
         {{ end }}
     </div>
 
-    
-
     <div class="nav-footer">
         {{partial "copyright.html" .}}
     </div>
-    
+
 </div>
