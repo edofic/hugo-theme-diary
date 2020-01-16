@@ -34,10 +34,12 @@
 </nav>
 <div class="single-column-header-container" ref="pageHead"
      v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
-        <div class="single-column-header-title">{{.Site.Title}}</div>
-        {{ with .Site.Params.subtitle }}
-        <div class="single-column-header-subtitle">{{.}}</div>
-        {{ end }}
+        <a href="{{.Site.BaseURL}}">
+            <div class="single-column-header-title">{{.Site.Title}}</div>
+            {{ with .Site.Params.subtitle }}
+            <div class="single-column-header-subtitle">{{.}}</div>
+            {{ end }}
+        </a>
 
         {{ with .Site.Params.github }}
             <a href="https://github.com/{{.}}"><img src="/icons/github.svg" width="20"/></a>
