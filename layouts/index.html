@@ -28,9 +28,31 @@
                         {{ end }}
                     </div>
                 </div>
+            </a>
             {{ end }}
         {{ end }}
-        </a>
+
+        <div class="footer-pagination">
+            {{ if .Paginator.HasPrev }}
+            <a class="older-posts" href="{{.Paginator.Prev.URL}}">
+                <i class="material-icons pagination-action-icon">
+                    chevron_left
+                </i>
+                Previous
+            </a>
+            {{ end }}
+
+            {{ .Paginator.PageNumber }} / {{ .Paginator.TotalPages }}
+
+            {{ if .Paginator.HasNext }}
+            <a class="newer-posts" href="{{.Paginator.Next.URL}}">
+                Next
+                <i class="material-icons pagination-action-icon">
+                    chevron_right
+                </i>
+            </a>
+            {{ end }}
+        </div>
     </div>
 </div>
 {{ end }}
