@@ -50,9 +50,7 @@
         {{ with .Site.Params.twitter }}
             <a href="https://twitter.com/{{.}}"><img src="/icons/twitter.svg" width="20"/></a>
         {{ end }}
-        {{ with .OutputFormats.Get "rss" -}}
-            <a href="{{ .Permalink }}"><img src="/icons/rss.svg" width="20"/></a>
-        {{ end }}
+        <a href="/index.xml"><img src="/icons/rss.svg" width="20"/></a>
         {{ with .Site.Params.email }}
             <a href="mailto:{{.}}"><img src="/icons/email.svg" width="20"/></a>
         {{ end }}
